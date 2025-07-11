@@ -19,14 +19,14 @@ export const ResultsView: React.FC<ResultsViewProps> = ({
   className = '',
 }) => {
   const { quadrant, expertiseScore, aiAdoptionScore, recommendations, scores } = results;
-  
+
   // Find the quadrant with the highest score
-  const strongestArea = Object.entries(scores).reduce((a, b) => 
+  const strongestArea = Object.entries(scores).reduce((a, b) =>
     a[1] > b[1] ? a : b
   );
-  
+
   // Find the quadrant with the lowest score
-  const areaForGrowth = Object.entries(scores).reduce((a, b) => 
+  const areaForGrowth = Object.entries(scores).reduce((a, b) =>
     a[1] < b[1] ? a : b
   );
 
@@ -37,14 +37,14 @@ export const ResultsView: React.FC<ResultsViewProps> = ({
           Your AI Expertise Assessment Results
         </h2>
         <p className="text-muted-foreground">
-          Based on your responses, here's how you're positioned in the AI Expertise Matrix
+          Based on your responses, here&apos;s how you&apos;re positioned in the AI Expertise Matrix
         </p>
       </div>
 
       <Card>
         <CardHeader className="border-b">
           <CardTitle className="text-center text-2xl">
-            You're in the <span className="text-primary">{quadrant}</span> quadrant
+            You&apos;re in the <span className="text-primary">{quadrant}</span> quadrant
           </CardTitle>
         </CardHeader>
         <CardContent className="pt-6">
@@ -57,8 +57,8 @@ export const ResultsView: React.FC<ResultsViewProps> = ({
                     <span>Domain Expertise</span>
                     <span className="font-medium">{formatScore(expertiseScore)}/5.0</span>
                   </div>
-                  <Progress 
-                    value={(expertiseScore / 5) * 100} 
+                  <Progress
+                    value={(expertiseScore / 5) * 100}
                     className="h-2"
                     indicatorClassName={getProgressColor((expertiseScore / 5) * 100)}
                   />
@@ -68,15 +68,15 @@ export const ResultsView: React.FC<ResultsViewProps> = ({
                     <span>AI Adoption</span>
                     <span className="font-medium">{formatScore(aiAdoptionScore)}/5.0</span>
                   </div>
-                  <Progress 
-                    value={(aiAdoptionScore / 5) * 100} 
+                  <Progress
+                    value={(aiAdoptionScore / 5) * 100}
                     className="h-2"
                     indicatorClassName={getProgressColor((aiAdoptionScore / 5) * 100)}
                   />
                 </div>
               </div>
             </div>
-            
+
             <div>
               <h3 className="font-semibold mb-4">Quadrant Scores</h3>
               <div className="space-y-3">
@@ -86,8 +86,8 @@ export const ResultsView: React.FC<ResultsViewProps> = ({
                       <span>{name}</span>
                       <span className="font-medium">{formatScore(score)}/5.0</span>
                     </div>
-                    <Progress 
-                      value={(score / 5) * 100} 
+                    <Progress
+                      value={(score / 5) * 100}
                       className="h-2"
                       indicatorClassName={name === quadrant ? 'bg-primary' : 'bg-muted-foreground/20'}
                     />
@@ -144,7 +144,7 @@ export const ResultsView: React.FC<ResultsViewProps> = ({
                 <div>
                   <h4 className="font-medium">Potential</h4>
                   <p className="text-sm text-muted-foreground">
-                    There's room to grow in how you leverage AI tools.
+                    There&apos;s room to grow in how you leverage AI tools.
                   </p>
                 </div>
               </div>

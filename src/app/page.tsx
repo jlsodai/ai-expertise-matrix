@@ -575,7 +575,7 @@ export default function AIExpertiseMatrix() {
                     </div>
                     <CardTitle className="text-2xl">Your Results</CardTitle>
                     <CardDescription>
-                      Based on your responses, here's where you fit in the AI × Expertise Matrix
+                      Based on your responses, here&apos;s where you fit in the AI × Expertise Matrix
                     </CardDescription>
                   </CardHeader>
                   <CardContent>

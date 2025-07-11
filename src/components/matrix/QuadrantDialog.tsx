@@ -101,7 +101,7 @@ export const QuadrantDialog: React.FC<QuadrantDialogProps> = ({
           <section>
             <h3 className="font-semibold mb-2">Example</h3>
             <div className="bg-muted/50 p-4 rounded-lg">
-              <p className="text-sm italic text-muted-foreground">"{quadrant.example}"</p>
+              <p className="text-sm italic text-muted-foreground">&quot;{quadrant.example}&quot;</p>
             </div>
           </section>
         </div>
