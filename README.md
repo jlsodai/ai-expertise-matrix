@@ -31,7 +31,7 @@ A modern web application that helps users assess their expertise and AI adoption
 
 1. Clone the repository:
    ```bash
-   git clone https://github.com/your-username/ai-expertise-matrix.git
+   git clone https://github.com/jlsodai/ai-expertise-matrix.git
    cd ai-expertise-matrix
    ```
 
@@ -61,15 +61,40 @@ A modern web application that helps users assess their expertise and AI adoption
 ## 🏗️ Project Structure
 
 ```
-/src
-  /app              # App router pages and layouts
-  /components       # Reusable UI components
-    /ui             # UI components built with Radix UI
-    /questionnaire  # Questionnaire components
-    /matrix         # Matrix visualization components
-  /lib              # Utility functions and constants
-  /styles           # Global styles
+/
+├── public/               # Static files (images, fonts, etc.)
+├── src/
+│   ├── app/              # App router pages and layouts
+│   │   └── ...
+│   ├── components/       # Reusable UI components
+│   │   ├── insights/     # Data visualization and insights components
+│   │   ├── layout/       # Layout components (headers, footers, etc.)
+│   │   ├── matrix/       # Matrix visualization components
+│   │   ├── pathways/     # Learning path components
+│   │   ├── questionnaire/# Questionnaire and assessment components
+│   │   └── ui/           # Base UI components built with Radix UI
+│   ├── data/            # Static data and configuration
+│   ├── lib/             # Utility functions, helpers, and constants
+│   ├── types/           # TypeScript type definitions
+│   └── styles/          # Global styles and theme configuration
+├── .gitignore          # Git ignore file
+└── package.json        # Project dependencies and scripts
 ```
+
+### Key Directories
+
+- **`/public`**: Contains static assets like images, fonts, and other files that need to be served directly.
+- **`/src/app`**: Contains the application's pages and layouts using Next.js 13+ App Router.
+- **`/src/components`**: Houses all React components, organized by feature:
+  - `insights/`: Components for data visualization and insights display
+  - `layout/`: Layout components that structure the application
+  - `matrix/`: Components related to the expertise matrix visualization
+  - `pathways/`: Components for displaying learning paths
+  - `questionnaire/`: Components for the assessment questionnaire
+  - `ui/`: Reusable UI components built with Radix UI
+- **`/src/data`**: Contains static data, mock data, and configuration files.
+- **`/src/lib`**: Utility functions, API clients, and helper functions.
+- **`/src/types`**: TypeScript type definitions and interfaces.
 
 ## 🤝 Contributing
 
@@ -93,7 +118,6 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## 📝 Todo
 
-- [ ] Add tests
 - [ ] Implement user authentication
 - [ ] Add data persistence
 - [ ] Create admin dashboard
