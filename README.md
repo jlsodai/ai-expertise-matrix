@@ -2,6 +2,8 @@
 
 A modern web application that helps users assess their expertise and AI adoption levels, providing personalized recommendations based on their position in the expertise matrix.
 
+![AI Expertise Matrix Screenshot](https://aiexpertisematrix.netlify.app/og-image.jpg)
+
 ## 🚀 Features
 
 - **Interactive Questionnaire**: Answer questions about your expertise and AI usage
@@ -61,7 +63,6 @@ A modern web application that helps users assess their expertise and AI adoption
 ## 🏗️ Project Structure
 
 ```
-/
 ├── public/               # Static files (images, fonts, etc.)
 ├── src/
 │   ├── app/              # App router pages and layouts
