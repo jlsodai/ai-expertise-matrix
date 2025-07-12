@@ -4,8 +4,7 @@ import {
   AlertTriangle,
   TrendingUp,
   Shield,
-  BookOpen,
-  ArrowUpRight
+  BookOpen
 } from 'lucide-react';
 import { QuadrantData, Question, KeyInsight, MovementPath } from '@/types/matrix';
 
