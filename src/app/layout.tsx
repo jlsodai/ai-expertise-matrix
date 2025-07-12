@@ -4,10 +4,12 @@ import { Inter } from 'next/font/google';
 
 const inter = Inter({ subsets: ['latin'] });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://ai-expertise-matrix.vercel.app';
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://aiexpertisematrix.netlify.app';
 const siteName = 'AI × Expertise Matrix';
 const description = 'Explore the four quadrants of AI adoption and domain expertise to understand opportunities, risks, and optimal strategies.';
 const ogImage = `${siteUrl}/og-image.jpg`;
+
+console.log(ogImage)
 
 export const metadata: Metadata = {
   title: {
