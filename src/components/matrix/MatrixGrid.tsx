@@ -1,68 +1,38 @@
-import React from 'react';
-import { QuadrantData } from '@/types';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import { Badge } from '@/components/ui/badge';
-import { cn } from '@/lib/utils';
+'use client';
+import { QuadrantCard } from './QuadrantCard';
+import { QuadrantData } from '@/types/matrix';
 
-export interface MatrixGridProps {
+interface MatrixGridProps {
   quadrants: QuadrantData[];
-  onQuadrantSelect: (quadrant: QuadrantData) => void;
-  className?: string;
+  onQuadrantClick: (quadrant: QuadrantData) => void;
 }
 
-export const MatrixGrid: React.FC<MatrixGridProps> = ({
-  quadrants,
-  onQuadrantSelect,
-  className = '',
-}) => {
+export function MatrixGrid({ quadrants, onQuadrantClick }: MatrixGridProps) {
   return (
-    <div className={cn('grid grid-cols-1 md:grid-cols-2 gap-6', className)}>
-      {quadrants.map((quadrant) => (
-        <Card
-          key={quadrant.id}
-          className={cn(
-            'cursor-pointer transition-all hover:shadow-md h-full flex flex-col',
-            quadrant.bgColor
-          )}
-          onClick={() => onQuadrantSelect(quadrant)}
-        >
-          <CardHeader className="pb-2">
-            <div className="flex justify-between items-start">
-              <CardTitle className={cn('text-xl', quadrant.color)}>
-                {quadrant.title}
-              </CardTitle>
-              <Badge variant="outline" className={quadrant.color}>
-                {quadrant.riskLevel} Risk
-              </Badge>
-            </div>
-            <p className="text-sm text-muted-foreground">{quadrant.subtitle}</p>
-          </CardHeader>
-          <CardContent className="flex-1">
-            <p className="text-sm mb-4">{quadrant.description}</p>
-            <div className="flex items-center text-sm text-muted-foreground mt-auto">
-              <span className="flex items-center">
-                Learn more
-                <svg
-                  className="ml-1 w-4 h-4"
-                  fill="none"
-                  stroke="currentColor"
-                  viewBox="0 0 24 24"
-                  xmlns="http://www.w3.org/2000/svg"
-                >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M9 5l7 7-7 7"
-                  />
-                </svg>
-              </span>
-            </div>
-          </CardContent>
-        </Card>
-      ))}
+    <div className="max-w-5xl mx-auto relative">
+      {/* Rotated Vertical Text */}
+      <div className="flex justify-center items-center absolute top-1/2 -left-48 transform -translate-y-1/2 hidden md:block">
+        <div className="transform rotate-[-90deg]">
+          <div className="flex items-center justify-center space-x-2 mt-1 gap-x-16">
+            <div className="text-xs text-gray-500">Low</div>
+            <div className="text-sm font-semibold text-gray-600">Domain Expertise</div>
+            <div className="text-xs text-gray-500">High</div>
+          </div>
+        </div>
+      </div>
+
+      {/* Matrix Grid */}
+      <div>
+        <div className="grid sm:grid-cols-2 gap-6">
+          {quadrants.map((quadrant) => (
+            <QuadrantCard
+              key={quadrant.id}
+              quadrant={quadrant}
+              onClick={() => onQuadrantClick(quadrant)}
+            />
+          ))}
+        </div>
+      </div>
     </div>
   );
-};
-
-export default MatrixGrid;
+}

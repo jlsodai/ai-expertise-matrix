@@ -1,5 +1,3 @@
-import { ReactNode } from 'react';
-
 export interface QuadrantData {
   id: string;
   title: string;
@@ -14,13 +12,12 @@ export interface QuadrantData {
   example: string;
   color: string;
   bgColor: string;
-  icon: ReactNode;
+  icon: React.ReactNode;
 }
 
 export interface Question {
   id: string;
   text: string;
-  description?: string;
   category: 'expertise' | 'ai_adoption';
   options: {
     value: number;
@@ -34,21 +31,18 @@ export interface QuestionnaireResult {
   expertiseScore: number;
   aiAdoptionScore: number;
   recommendations: string[];
-  scores: Record<string, number>;
-}
-
-export interface MovementPath {
-  from: string;
-  to: string;
-  difficulty: 'Easy' | 'Medium' | 'Hard';
-  description: string;
-  steps: string[];
-  icon: ReactNode;
 }
 
 export interface KeyInsight {
   title: string;
   description: string;
-  icon: ReactNode;
-  items: string[];
+  icon: React.ReactNode;
+}
+
+export interface MovementPath {
+  from: string;
+  to: string;
+  description: string;
+  path: string;
+  color: string;
 }
