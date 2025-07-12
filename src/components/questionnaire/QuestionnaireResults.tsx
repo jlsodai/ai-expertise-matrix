@@ -47,18 +47,18 @@ export function QuestionnaireResults({ result, onReset, onExploreMatrix }: Quest
               You are: {result.quadrant}
             </h3>
           </div>
-
-          <Button
-            onClick={onReset}
-            variant="outline"
-            className="mr-4"
-          >
-            <RotateCcw className="w-4 h-4 mr-2" />
-            Retake Assessment
-          </Button>
-          <Button onClick={onExploreMatrix}>
-            Explore Matrix
-          </Button>
+          <div className="flex justify-center space-x-4">
+            <Button
+              onClick={onReset}
+              variant="outline"
+            >
+              <RotateCcw className="w-4 h-4" />
+              Retake Assessment
+            </Button>
+            <Button onClick={onExploreMatrix}>
+              Explore Matrix
+            </Button>
+          </div>
         </CardContent>
       </Card>
 
