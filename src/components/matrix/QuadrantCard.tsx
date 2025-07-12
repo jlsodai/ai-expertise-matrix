@@ -41,10 +41,10 @@ export function QuadrantCard({ quadrant, onClick }: QuadrantCardProps) {
         </CardDescription>
       </CardHeader>
       <CardContent>
-        <p className="text-sm text-gray-600 mb-3">
+        <p className="text-gray-600 mb-3">
           {quadrant.description}
         </p>
-        <div className="text-xs text-gray-500 mb-2">
+        <div className="text-sm text-gray-500 mb-2">
           <strong>Outcome:</strong> {quadrant.outcomes}
         </div>
         <Button

@@ -39,7 +39,7 @@ export function KeyInsights({ insights }: KeyInsightsProps) {
           <div className="grid gap-4 md:grid-cols-2">
             <div className="space-y-3">
               <h4 className="font-semibold text-blue-600">For AI-Enhanced Experts (Q1):</h4>
-              <ul className="text-sm space-y-1 text-gray-600">
+              <ul className="space-y-1 text-gray-600">
                 <li>• Develop AI literacy within your domain</li>
                 <li>• Create validation frameworks for AI outputs</li>
                 <li>• Experiment with AI for ideation, not just execution</li>
@@ -47,7 +47,7 @@ export function KeyInsights({ insights }: KeyInsightsProps) {
             </div>
             <div className="space-y-3">
               <h4 className="font-semibold text-green-600">For Traditional Experts (Q2):</h4>
-              <ul className="text-sm space-y-1 text-gray-600">
+              <ul className="space-y-1 text-gray-600">
                 <li>• Gradually experiment with AI tools in low-stakes scenarios</li>
                 <li>• Focus on AI applications that complement existing expertise</li>
                 <li>• Consider the competitive advantage of AI-enhanced peers</li>
@@ -55,7 +55,7 @@ export function KeyInsights({ insights }: KeyInsightsProps) {
             </div>
             <div className="space-y-3">
               <h4 className="font-semibold text-orange-600">For AI-Dependent Novices (Q3):</h4>
-              <ul className="text-sm space-y-1 text-gray-600">
+              <ul className="space-y-1 text-gray-600">
                 <li>• Seek expert validation of AI outputs</li>
                 <li>• Use AI to accelerate learning, not replace it</li>
                 <li>• Focus on building domain knowledge alongside AI skills</li>
@@ -63,7 +63,7 @@ export function KeyInsights({ insights }: KeyInsightsProps) {
             </div>
             <div className="space-y-3">
               <h4 className="font-semibold text-red-600">For Traditional Novices (Q4):</h4>
-              <ul className="text-sm space-y-1 text-gray-600">
+              <ul className="space-y-1 text-gray-600">
                 <li>• Prioritize building foundational expertise</li>
                 <li>• Consider AI as a learning accelerator once basics are solid</li>
                 <li>• Develop critical thinking skills to eventually validate AI outputs</li>
