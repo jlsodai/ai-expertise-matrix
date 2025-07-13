@@ -4,7 +4,7 @@ import { Inter } from 'next/font/google';
 
 const inter = Inter({ subsets: ['latin'] });
 
-const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://ai-expertise-matrix.vercel.app';
+const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://aiexpertisematrix.vercel.app';
 const siteName = 'AI × Expertise Matrix';
 const description = 'Explore the four quadrants of AI adoption and domain expertise to understand opportunities, risks, and optimal strategies.';
 const ogImage = `${siteUrl}/og-image.jpg`;
@@ -17,8 +17,12 @@ export const metadata: Metadata = {
   description,
   metadataBase: new URL(siteUrl),
   icons: {
-    icon: '/favicon.ico',
-    apple: '/apple-touch-icon.png',
+    icon: [
+      { url: `${siteUrl}/favicon.ico`, sizes: 'any' },
+    ],
+    apple: [
+      { url: `${siteUrl}/favicon.ico` },
+    ],
   },
   openGraph: {
     type: 'website',
