@@ -51,9 +51,17 @@ export function QuestionnaireForm({ questions, onComplete }: QuestionnaireFormPr
 
     let quadrant = '';
     let recommendations: string[] = [];
+    let riskLevel: 'Low' | 'Medium' | 'High' = 'Medium';
+    let riskDescription = '';
+    let keyRisks: string[] = [];
+    let upskillAreas: string[] = [];
 
     if (expertiseScore >= 3.5 && aiAdoptionScore >= 3.5) {
       quadrant = 'Expert + AI User';
+      riskLevel = 'Low';
+      riskDescription = 'You are well-positioned in the AI era with both domain expertise and AI adoption.';
+      keyRisks = ['Overconfidence in AI outputs', 'Missing emerging AI developments'];
+      upskillAreas = ['Advanced AI techniques', 'AI ethics and governance'];
       recommendations = [
         'Continue refining your AI prompting techniques',
         'Develop validation frameworks for AI outputs',
@@ -62,6 +70,10 @@ export function QuestionnaireForm({ questions, onComplete }: QuestionnaireFormPr
       ];
     } else if (expertiseScore >= 3.5 && aiAdoptionScore < 3.5) {
       quadrant = 'Expert + No AI';
+      riskLevel = 'Medium';
+      riskDescription = 'Your expertise is valuable, but you risk being outpaced by AI-enhanced competitors.';
+      keyRisks = ['Competitive disadvantage', 'Efficiency gaps', 'Missing AI opportunities'];
+      upskillAreas = ['AI tool adoption', 'AI integration strategies', 'Prompt engineering'];
       recommendations = [
         'Start experimenting with AI tools in low-stakes scenarios',
         'Focus on AI applications that complement your expertise',
@@ -70,6 +82,10 @@ export function QuestionnaireForm({ questions, onComplete }: QuestionnaireFormPr
       ];
     } else if (expertiseScore < 3.5 && aiAdoptionScore >= 3.5) {
       quadrant = 'Non-Expert + AI User';
+      riskLevel = 'High';
+      riskDescription = 'Using AI without sufficient domain expertise can lead to poor decisions and outcomes.';
+      keyRisks = ['Inability to validate AI outputs', 'Poor decision making', 'False confidence'];
+      upskillAreas = ['Domain expertise building', 'Critical thinking', 'AI output validation'];
       recommendations = [
         'Seek expert validation of your AI outputs',
         'Focus on building domain knowledge alongside AI skills',
@@ -78,6 +94,10 @@ export function QuestionnaireForm({ questions, onComplete }: QuestionnaireFormPr
       ];
     } else {
       quadrant = 'Non-Expert + No AI';
+      riskLevel = 'Medium';
+      riskDescription = 'You need to develop both domain expertise and AI skills to remain competitive.';
+      keyRisks = ['Being left behind', 'Limited career growth', 'Reduced productivity'];
+      upskillAreas = ['Domain knowledge', 'Basic AI literacy', 'Foundational skills'];
       recommendations = [
         'Prioritize building foundational expertise first',
         'Consider AI as a learning accelerator once basics are solid',
@@ -90,7 +110,13 @@ export function QuestionnaireForm({ questions, onComplete }: QuestionnaireFormPr
       quadrant,
       expertiseScore,
       aiAdoptionScore,
-      recommendations
+      recommendations,
+      riskProfile: {
+        level: riskLevel,
+        description: riskDescription,
+        keyRisks,
+        upskillAreas
+      }
     });
   };
 

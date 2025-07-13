@@ -4,7 +4,8 @@ import {
   AlertTriangle,
   TrendingUp,
   Shield,
-  BookOpen
+  BookOpen,
+  ArrowUpRight
 } from 'lucide-react';
 import { QuadrantData, Question, KeyInsight, MovementPath } from '@/types/matrix';
 
@@ -43,7 +44,7 @@ export const quadrants: QuadrantData[] = [
     id: 'q2',
     title: 'Expert + No AI',
     subtitle: 'The Traditional Expert',
-    description: 'Deep domain knowledge, limited or no AI technology adoption or strategies',
+    description: 'Deep domain knowledge, limited or no AI adoption',
     characteristics: [
       'Deep domain knowledge with traditional methodologies',
       'Proven track record of quality work',
@@ -61,7 +62,7 @@ export const quadrants: QuadrantData[] = [
       'Could fall behind peers who leverage AI effectively',
       'Limited exposure to new problem-solving approaches'
     ],
-    outcomes: 'Reliable, high-quality work, though often at the expense of speed and efficiency',
+    outcomes: 'Reliable, high-quality work but potentially slower pace',
     riskLevel: 'Medium',
     riskDescription: 'Opportunity cost of not leveraging AI',
     example: 'Experienced lawyer who relies solely on traditional research methods',

@@ -6,6 +6,8 @@ import { MatrixGrid } from '@/components/matrix/MatrixGrid';
 import { QuadrantModal } from '@/components/matrix/QuadrantModal';
 import { QuestionnaireForm } from '@/components/questionnaire/QuestionnaireForm';
 import { QuestionnaireResults } from '@/components/questionnaire/QuestionnaireResults';
+import { EmailCapture } from '@/components/questionnaire/EmailCapture';
+import { EmailSuccess } from '@/components/questionnaire/EmailSuccess';
 import { KeyInsights } from '@/components/insights/KeyInsights';
 import { MovementPathways } from '@/components/pathways/MovementPathways';
 import { quadrants, questions, keyInsights, movementPaths } from '@/data/matrix-data';
@@ -16,15 +18,41 @@ export default function AIExpertiseMatrix() {
   const [activeTab, setActiveTab] = useState('matrix');
   const [showResults, setShowResults] = useState(false);
   const [questionnaireResult, setQuestionnaireResult] = useState<QuestionnaireResult | null>(null);
+  const [showEmailCapture, setShowEmailCapture] = useState(false);
+  const [showEmailSuccess, setShowEmailSuccess] = useState(false);
+  const [userEmail, setUserEmail] = useState('');
 
   const handleQuestionnaireComplete = (result: QuestionnaireResult) => {
     setQuestionnaireResult(result);
-    setShowResults(true);
+    setShowEmailCapture(true);
   };
 
   const resetQuestionnaire = () => {
     setShowResults(false);
+    setShowEmailCapture(false);
+    setShowEmailSuccess(false);
     setQuestionnaireResult(null);
+    setUserEmail('');
+  };
+
+  const handleEmailSubmit = async (email: string, preferences: any, userInfo: any) => {
+    // Here you would integrate with your email service (e.g., ConvertKit, Mailchimp, etc.)
+    console.log('Email submitted:', email, preferences, userInfo);
+    console.log('User result:', questionnaireResult);
+
+    setUserEmail(email);
+    setShowEmailCapture(false);
+    setShowEmailSuccess(true);
+  };
+
+  const handleEmailSkip = () => {
+    setShowEmailCapture(false);
+    setShowResults(true);
+  };
+
+  const handleEmailSuccessContinue = () => {
+    setShowEmailSuccess(false);
+    setShowResults(true);
   };
 
   const handleExploreMatrix = () => {
@@ -45,9 +73,9 @@ export default function AIExpertiseMatrix() {
           </TabsList>
 
           <TabsContent value="matrix" className="space-y-8">
-            <MatrixGrid 
-              quadrants={quadrants} 
-              onQuadrantClick={setSelectedQuadrant} 
+            <MatrixGrid
+              quadrants={quadrants}
+              onQuadrantClick={setSelectedQuadrant}
             />
             <div className="text-center mt-8 hidden md:block">
               <div className="flex items-center justify-evenly mt-1">
@@ -59,10 +87,22 @@ export default function AIExpertiseMatrix() {
           </TabsContent>
 
           <TabsContent value="questionnaire" className="space-y-6">
-            {!showResults ? (
-              <QuestionnaireForm 
+            {!showResults && !showEmailCapture && !showEmailSuccess ? (
+              <QuestionnaireForm
                 questions={questions}
                 onComplete={handleQuestionnaireComplete}
+              />
+            ) : showEmailCapture && questionnaireResult ? (
+              <EmailCapture
+                result={questionnaireResult}
+                onEmailSubmit={handleEmailSubmit}
+                onSkip={handleEmailSkip}
+              />
+            ) : showEmailSuccess && questionnaireResult ? (
+              <EmailSuccess
+                result={questionnaireResult}
+                email={userEmail}
+                onContinue={handleEmailSuccessContinue}
               />
             ) : (
               <QuestionnaireResults

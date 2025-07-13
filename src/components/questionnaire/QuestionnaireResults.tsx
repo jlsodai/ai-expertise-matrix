@@ -47,18 +47,18 @@ export function QuestionnaireResults({ result, onReset, onExploreMatrix }: Quest
               You are: {result.quadrant}
             </h3>
           </div>
-          <div className="flex justify-center space-x-4">
-            <Button
-              onClick={onReset}
-              variant="outline"
-            >
-              <RotateCcw className="w-4 h-4" />
-              Retake Assessment
-            </Button>
-            <Button onClick={onExploreMatrix}>
-              Explore Matrix
-            </Button>
-          </div>
+
+          <Button
+            onClick={onReset}
+            variant="outline"
+            className="mr-4"
+          >
+            <RotateCcw className="w-4 h-4 mr-2" />
+            Retake Assessment
+          </Button>
+          <Button onClick={onExploreMatrix}>
+            Explore Matrix
+          </Button>
         </CardContent>
       </Card>
 
@@ -73,7 +73,7 @@ export function QuestionnaireResults({ result, onReset, onExploreMatrix }: Quest
           <ul className="space-y-3">
             {result.recommendations.map((rec, index) => (
               <li key={index} className="flex items-start space-x-3">
-                <div className="w-6 h-6 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center font-semibold mt-0.5">
+                <div className="w-6 h-6 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center text-sm font-semibold mt-0.5">
                   {index + 1}
                 </div>
                 <span className="text-gray-700">{rec}</span>

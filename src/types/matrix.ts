@@ -31,6 +31,12 @@ export interface QuestionnaireResult {
   expertiseScore: number;
   aiAdoptionScore: number;
   recommendations: string[];
+  riskProfile: {
+    level: 'Low' | 'Medium' | 'High';
+    description: string;
+    keyRisks: string[];
+    upskillAreas: string[];
+  };
 }
 
 export interface KeyInsight {
